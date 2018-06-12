@@ -5,11 +5,12 @@ public class Czigaretta {
 		ScreenGrid grid = new ScreenGrid();
 		Terminal screen = new Terminal();
 
-		while (True) {
-			screen.clearScreen();
-			screen.printMap(grid.grid);
-			grid.refreshScreen()
-			Thread.sleep(500)
-		}
+		String[][] output = grid.getGrid();
+		grid.init();
+		grid.refreshGrid();
+		screen.clearScreen();
+		screen.printMap(output);
+		
+
 	}
 }
