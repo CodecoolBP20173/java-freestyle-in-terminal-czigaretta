@@ -31,7 +31,7 @@ public class ScreenGrid {
         int obstacleX = obstacle.getXPosition();
         int obstacleY = obstacle.getYPosition();
         for (int i = 0; i < obstacleShape.length && i+obstacleY < HEIGHT; i++){
-            for(int j = 0; j < obstacleShape.length && j+obstacleX < WIDTH; j++){
+            for(int j = 0; j < obstacleShape[i].length && j+obstacleX < WIDTH; j++){
                 this.grid[i+obstacleY][j+obstacleX] = obstacleShape[i][j];
             }
         }

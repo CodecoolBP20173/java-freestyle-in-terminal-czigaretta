@@ -2,7 +2,7 @@ package com.codecool.termlib;
 
 public class Czigaretta {
 
-	public static Obstacle obstacle = new Obstacle(140, 30);
+	public static Obstacle obstacle = new Obstacle(140, 20);
 
 	public static Dino dino = new Dino(40, 30);
 
