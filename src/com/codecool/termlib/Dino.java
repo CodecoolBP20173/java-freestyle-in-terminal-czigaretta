@@ -39,7 +39,7 @@ public class Dino {
          return this.dinoShape;
      }
 
-     public void jump(int newY) {
-         this.y = newY;
+     public void jump(int newX) {
+         this.x = newX;
      }
 }
