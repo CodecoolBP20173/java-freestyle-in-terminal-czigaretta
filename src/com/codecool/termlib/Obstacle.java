@@ -4,9 +4,13 @@ public class Obstacle {
 
      private int x;
      private int y;
-     private String[][] obstacleShape = {{"1", "1", "1"},
-				         {"1", "1", "1"},
-				         {"1", "1", "1"}};
+     private String[][] obstacleShape = {{" ", " ", "█", "█", " ", " "},
+				         {"█", " ", "█", "█", " ", " "},
+				         {"█", "█", "█", "█", " ", "█"},
+				         {" ", " ", "█", "█", "█", "█"},
+				         {" ", " ", "█", "█", " ", " "},
+				         {" ", " ", "█", "█", " ", " "},
+				         {" ", " ", "█", "█", " ", " "}};
   
      public Obstacle(int x, int y) {
          this.x = x;

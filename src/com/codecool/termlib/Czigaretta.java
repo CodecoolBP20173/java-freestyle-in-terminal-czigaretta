@@ -3,7 +3,7 @@ package com.codecool.termlib;
 public class Czigaretta {
 
 	public static Obstacle obstacle = new Obstacle(140, 29);
-
+  
 	public static Dino dino = new Dino(15, 30);
 
 	public static void main(String[] args) throws InterruptedException {
@@ -21,8 +21,5 @@ public class Czigaretta {
 			Thread.sleep(10);
 			obstacle.modifyPosition();
 		}
-		
-		
-
 	}
 }
