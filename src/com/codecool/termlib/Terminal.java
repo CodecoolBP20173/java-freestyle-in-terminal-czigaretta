@@ -29,6 +29,7 @@ public class Terminal {
      * Reset the color, background color, and any other style
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
+
     public void resetStyle() {
     }
 
@@ -37,17 +38,29 @@ public class Terminal {
      *
      * Might reset cursor position.
      */
+
+    public void init(){
+        System.out.print("\033[?25l");
+    }
+
+
     public void clearScreen() {
-	System.out.print(CONTROL_CODE + MOVE + CONTROL_CODE + CLEAR);  
+	System.out.print(CONTROL_CODE + "0;0" + MOVE + CONTROL_CODE + CLEAR);  
     	System.out.flush(); 
     }
 
     public void printMap(String[][] map) {
 	for(int i = 0; i < map.length; i++){
 	    for(int j = 0; j < map[i].length; j++){
-		System.out.print(map[i][j]);
+            if (map[i][j] != " "){
+                if (i == map.length-1){
+                    System.out.println(CONTROL_CODE + String.valueOf(i) + ";" + String.valueOf(j) + MOVE + map[i][j]);
+                }
+                else {
+                    System.out.print(CONTROL_CODE + String.valueOf(i) + ";" + String.valueOf(j) + MOVE + map[i][j]);
+                }
+            }
 	    }
-	    System.out.println();
 	}
     }
 
