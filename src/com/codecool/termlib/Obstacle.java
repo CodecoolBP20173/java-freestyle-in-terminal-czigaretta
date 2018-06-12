@@ -44,10 +44,10 @@ public class Obstacle {
      }
 
      public void modifyPosition() {
-         this.y--;
+         this.x--;
      }
 
      public void modifyPosition(int amount) {
-         this.y -= amount;
+         this.x -= amount;
      }
 }
