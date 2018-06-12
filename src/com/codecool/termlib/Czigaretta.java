@@ -9,6 +9,7 @@ public class Czigaretta {
 	public static void main(String[] args) throws InterruptedException {
 		ScreenGrid grid = new ScreenGrid();
 		Terminal screen = new Terminal();
+		screen.init();
 
 		String[][] output;
 		while (true){
