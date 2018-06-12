@@ -14,10 +14,7 @@ public class ScreenGrid {
     public void refreshGrid(){
         Dino dino = new Dino();
         
-<<<<<<< HEAD
-=======
         
->>>>>>> develop
         String[][] dinoShape = dino.getShape();
         int dinoX = dino.getXPosition();
         int dinoY = dino.getYPosition();
