@@ -2,10 +2,15 @@ package com.codecool.termlib;
 
 public class Czigaretta {
 	public static void main(String[] args){
+		ScreenGrid grid = new ScreenGrid();
 		Terminal screen = new Terminal();
+
+		String[][] output = grid.getGrid();
+		grid.init();
+		grid.refreshGrid();
 		screen.clearScreen();
-		int[][] map = new int[20][180];
-		screen.printMap(map);
-		screen.clearScreen();
+		screen.printMap(output);
+		
+
 	}
 }
