@@ -40,6 +40,6 @@ public class Dino {
      }
 
      public void jump(int newX) {
-         this.x = newX;
+         this.y = newX;
      }
 }
