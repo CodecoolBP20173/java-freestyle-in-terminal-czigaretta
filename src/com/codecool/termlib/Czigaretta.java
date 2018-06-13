@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Czigaretta {
 
-	public static Obstacle obstacle = new Obstacle(140, 30);
+	public static Obstacle obstacle = new Obstacle(140, 29);
   
 	public static Dino dino = new Dino(10, 30);
 
