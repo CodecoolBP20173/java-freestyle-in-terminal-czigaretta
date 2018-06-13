@@ -4,6 +4,7 @@ public class Dino {
 
      private int x;
      private int y;
+     private long start = System.currentTimeMillis();
      private String[][] dinoShape = {{" ", " ", " ", "█", "▀", "█", "█", "█"},
 				     {" ", " ", " ", "█", "█", "█", "█", "█"},
 				     {" ", " ", " ", "█", "█", "█", " ", " "},
@@ -40,7 +41,10 @@ public class Dino {
          return this.dinoShape;
      }
 
-     public void jump(int newX) {
-         this.y = newX;
+     public void jump() {
+         if (this.y < 30){
+            float time = (System.currentTimeMillis() - this.start);
+            this.y = 40-(((int) Math.round((10000*time-0.5*20*time*time)/100000)) + 10);
+        }
      }
 }
