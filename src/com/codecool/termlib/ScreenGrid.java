@@ -11,7 +11,11 @@ public class ScreenGrid {
     public void init(){
         for (int i = 0; i<this.grid.length; i++){
             for (int j = 0; j<this.grid[i].length; j++)
-                this.grid[i][j] = " ";
+		if (i == this.grid.length - 4) {
+                    this.grid[i][j] = "▔";
+		} else {
+	 	    this.grid[i][j] = " ";	
+                }
         }
     }
     
