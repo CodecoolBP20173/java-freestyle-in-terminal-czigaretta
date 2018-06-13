@@ -41,8 +41,17 @@ public class Terminal {
 
     public void init(){
         System.out.print("\033[?25l");
+	raw(true);
     }
 
+    public static void raw(boolean on) {
+	String s = on? "" : "-";
+	try { 
+            Runtime.getRuntime().exec(new String [] {
+	    "sh", "-c", "stty "+s+"raw </dev/tty"}).waitFor();
+	} catch (Exception e) {
+        }
+    }
 
     public void clearScreen() {
 	System.out.print(CONTROL_CODE + "0;0" + MOVE + CONTROL_CODE + CLEAR);  
@@ -61,6 +70,7 @@ public class Terminal {
                 }
             }
 	    }
+	    System.out.print("\u001b[1E");
 	}
     }
 
