@@ -2,45 +2,63 @@ package com.codecool.termlib;
 
 public class Dino {
 
-     private int x;
-     private int y;
-     private String[][] dinoShape = {{" ", " ", " ", "█", "▀", "█", "█", "█"},
-				     {" ", " ", " ", "█", "█", "█", "█", "█"},
-				     {" ", " ", " ", "█", "█", "█", " ", " "},
-				     {"█", " ", "█", "█", "█", "█", "▄", " "},
-				     {"▝", "█", "█", "█", "█", " ", "▝", " "},
-				     {" ", " ", "█", " ", "█", " ", " ", " "}};
-  
-     public Dino(int x, int y) {
-         this.x = x;
-         this.y = y;
-     } 
-     
-     public void setXPosition(int newX) {
-         this.x = newX;
-     }
+    private int x;
+    private int y;
+    private boolean jumping = false; 
+    private long startTime;
+    private String[][] dinoShape = {{" ", " ", " ", "█", "▀", "█", "█", "█"},
+                                    {" ", " ", " ", "█", "█", "█", "█", "█"},
+                                    {" ", " ", " ", "█", "█", "█", " ", " "},
+                                    {"█", " ", "█", "█", "█", "█", "▄", " "},
+                                    {"▝", "█", "█", "█", "█", " ", "▝", " "},
+                                    {" ", " ", "█", " ", "█", " ", " ", " "}};
 
-     public void setYPosition(int newY) {
-         this.y = newY;
-     }
+    public Dino(int x, int y) {
+        this.x = x;
+        this.y = y;
+    } 
+    
+    public void setXPosition(int newX) {
+        this.x = newX;
+    }
 
-     public void setShape(String[][] newShape) {
-         this.dinoShape = newShape;
-     }
+    public void setYPosition(int newY) {
+        this.y = newY;
+    }
 
-     public int getXPosition() {
-         return this.x;
-     }
+    public void setShape(String[][] newShape) {
+        this.dinoShape = newShape;
+    }
 
-     public int getYPosition() {
-         return this.y;
-     }
+    public int getXPosition() {
+        return this.x;
+    }
 
-     public String[][] getShape() {
-         return this.dinoShape;
-     }
+    public int getYPosition() {
+        return this.y;
+    }
 
-     public void jump(int newX) {
-         this.y = newX;
-     }
+    public String[][] getShape() {
+        return this.dinoShape;
+    }
+
+    public boolean jump() {
+        if (jumping){
+            if (this.y <= 30){
+                float time = (System.currentTimeMillis() - this.startTime);
+                this.y = 40 -(((int) Math.round((6000*time-0.5*15*time*time)/100000)) + 10);
+                return true;
+            }
+            else {
+                this.jumping = false;
+                this.y = 30;
+                return false;
+            }
+        }
+        else {
+            this.jumping = true;
+            this.startTime = System.currentTimeMillis();
+            return true;
+        }
+    }
 }
