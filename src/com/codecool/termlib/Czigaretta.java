@@ -5,12 +5,13 @@ import java.io.IOException;
 public class Czigaretta {
 
 	public static Obstacle obstacle = new Obstacle(140, 29);
-
-	public static Dino dino = new Dino(40, 30);
+  
+	public static Dino dino = new Dino(15, 30);
 
 	public static void main(String[] args) throws InterruptedException {
 		ScreenGrid grid = new ScreenGrid();
 		Terminal screen = new Terminal();
+		screen.init();
 
 		String[][] output;
 		char button;
