@@ -17,7 +17,12 @@ public class Czigaretta {
 		char button;
 		while (true) {
 			button = Czigaretta.tryToRead();
+                        if (button == 'c') {
+			    dino.jump();	
+			}
 			if (button == 'q') {
+			    Terminal.raw(false);
+                            System.out.print("\033[?25h");	
 			    break;		
                         }
 			output = grid.getGrid();
