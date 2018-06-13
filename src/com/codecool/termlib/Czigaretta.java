@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public class Czigaretta {
 
-	public static Obstacle obstacle = new Obstacle(140, 29);
+	public static Obstacle obstacle = new Obstacle(140, 30);
   
-	public static Dino dino = new Dino(15, 30);
+	public static Dino dino = new Dino(10, 30);
 
 	public static void main(String[] args) throws InterruptedException {
 		ScreenGrid grid = new ScreenGrid();
@@ -30,8 +30,9 @@ public class Czigaretta {
 			grid.refreshGrid(dino, obstacle);
 			screen.clearScreen();
 			screen.printMap(output);
-			Thread.sleep(100);
+			Thread.sleep(30);
 			obstacle.modifyPosition();
+			dino.jump();
 		}
 	}
 
