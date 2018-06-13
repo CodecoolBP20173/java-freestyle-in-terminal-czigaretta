@@ -4,7 +4,7 @@ public class Czigaretta {
 
 	public static Obstacle obstacle = new Obstacle(140, 30);
   
-	public static Dino dino = new Dino(10, 28);
+	public static Dino dino = new Dino(10, 30);
 
 	public static void main(String[] args) throws InterruptedException {
 		ScreenGrid grid = new ScreenGrid();
