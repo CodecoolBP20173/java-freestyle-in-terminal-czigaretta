@@ -27,7 +27,7 @@ public class ScreenGrid {
         int obstacleXPosition = obstacle.getXPosition();
         int dinoYPosition = dino.getYPosition();
         int obstacleYPosition = obstacle.getYPosition();
-        for (int move = 0; move < 7; move++){
+        for (int move = 0; move < 8; move++){
             for(int obsatclebody = 0; obsatclebody < 8; obsatclebody++){
             if(dinoXPosition+dinoYPosition + move + obsatclebody == obstacleXPosition+obstacleYPosition + obsatclebody){
                 System.out.println(dinoXPosition+dinoYPosition);
@@ -35,11 +35,12 @@ public class ScreenGrid {
                 System.out.println(move);
                 // IDE KELL VMI HOGY MI A BRÉ TÖRTÉNJEN HA ÉRINTKEZNEK
             }
-            if(dinoXPosition-dinoYPosition - move - obsatclebody == obstacleXPosition-obstacleYPosition - obsatclebody){
+            /*
+            if(dinoXPosition+dinoYPosition + move + obsatclebody == obstacleXPosition+obstacleYPosition + obsatclebody){
                 System.out.println(dinoXPosition+dinoYPosition);
                 System.out.println(obstacleXPosition+obstacleYPosition);
                 System.out.println(move);
-            }    
+                */
         }
         }
 
