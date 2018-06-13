@@ -15,10 +15,15 @@ public class Czigaretta {
 
 		String[][] output;
 		char button;
+		boolean jumping = false;
 		while (true) {
 			button = Czigaretta.tryToRead();
-                        if (button == 'c') {
-			    dino.jump();	
+			if (jumping) {
+		            jumping = dino.jump();
+   			} else {
+                            if (button == ' ') {
+			       jumping = dino.jump();
+			    }	
 			}
 			if (button == 'q') {
 			    Terminal.raw(false);
@@ -32,7 +37,6 @@ public class Czigaretta {
 			screen.printMap(output);
 			Thread.sleep(30);
 			obstacle.modifyPosition();
-			dino.jump();
 		}
 	}
 
