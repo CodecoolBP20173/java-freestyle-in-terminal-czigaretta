@@ -61,6 +61,7 @@ public class Terminal {
                 }
             }
 	    }
+	    System.out.print("\u001b[1E");
 	}
     }
 
