@@ -47,7 +47,7 @@ public class Terminal {
 	    for(int j = 0; j < map[i].length; j++){
 		System.out.print(map[i][j]);
 	    }
-	    System.out.println();
+	    System.out.print("\u001b[1E");
 	}
     }
 
