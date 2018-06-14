@@ -1,8 +1,5 @@
 package com.codecool.termlib;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class ScreenGrid {
 
     private static final int WIDTH = 150;
