@@ -42,6 +42,30 @@ public class ScreenGrid {
         return true;
     }
 
+    public boolean checkForDeath(Dino dino, Obstacle obstacle){
+        String[][] dinoShape = dino.getShape();
+        int dinoX = dino.getXPosition();
+        int dinoY = dino.getYPosition();
+
+        String[][] obstacleShape = obstacle.getShape();
+        int obstacleX = obstacle.getXPosition();
+        int obstacleY = obstacle.getYPosition();
+
+        for (int dy = 0; dy<dinoShape.length; dy++){
+            for (int dx = 0; dx<dinoShape[dy].length; dx++){
+                for (int oy = 0; oy < obstacleShape.length; oy++){
+                    for(int ox = 0; ox < obstacleShape[oy].length; ox++){
+                        if(dinoX+dx == obstacleX+ox && dinoY+dy == obstacleY+oy){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
     public String[][] getGrid(){
         return this.grid;
     }
