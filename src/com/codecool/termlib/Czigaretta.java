@@ -16,7 +16,7 @@ public class Czigaretta {
 		String[][] output;
 		char button;
 		boolean jumping = false;
-		while (true) {
+		while (grid.refreshGrid(dino, obstacle)) {
 			button = Czigaretta.tryToRead();
 			if (jumping) {
 		            jumping = dino.jump();

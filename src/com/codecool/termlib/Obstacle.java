@@ -5,15 +5,13 @@ public class Obstacle {
      private int x;
      private int y;
      private int startingX;
-     private String[][] obstacleShape = {{" ", " ", "█", "█", " ", " "},
-                                        {"█", " ", "█", "█", " ", " "},
-                                        {"█", "█", "█", "█", " ", "█"},
-                                        {" ", " ", "█", "█", "█", "█"},
-                                        {" ", " ", "█", "█", " ", " "},
-                                        {" ", " ", "█", "█", " ", " "},
-                                        {" ", " ", "█", "█", " ", " "}};
-
-    // private int[] obstaclePosition = {}                                   
+     private String[][] obstacleShape = {{" ", " ", " ", "\u001B[32m█", "█\u001B[0m", " ", " ", " "},
+				         {" ", "\u001B[32m█", " ", "█", "█\u001B[0m", " ", " ", " "},
+				         {" ", "\u001B[32m█", "█", "█", "█", " ", "█\u001B[0m", " "},
+				         {" ", " ", " ", "\u001B[32m█", "█", "█", "█\u001B[0m", " "},
+				         {" ", " ", " ", "\u001B[32m█", "█\u001B[0m", " ", " ", " "},
+				         {" ", " ", " ", "\u001B[32m█", "█\u001B[0m", " ", " ", " "},
+				         {" ", " ", " ", "\u001B[32m█", "█\u001B[0m", " ", " ", " "}};
   
      public Obstacle(int x, int y) {
          this.startingX = x;
@@ -52,7 +50,7 @@ public class Obstacle {
      }
 
      public void modifyPosition() {
-         this.x--;
+         this.x-=2;
          if (x < 0){
              this.x = this.startingX;
          }

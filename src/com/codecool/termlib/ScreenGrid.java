@@ -1,5 +1,8 @@
 package com.codecool.termlib;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class ScreenGrid {
 
     private static final int WIDTH = 150;
@@ -11,38 +14,15 @@ public class ScreenGrid {
     public void init(){
         for (int i = 0; i<this.grid.length; i++){
             for (int j = 0; j<this.grid[i].length; j++)
+            if (i == this.grid.length - 4) {
+                this.grid[i][j] = "▔";
+            } else {
                 this.grid[i][j] = " ";
-        }
-    }
-
-    /*
-    public void amIDead(dinoXPosition,dinoYPosition,obstacleXPosition,obstacleYPosition){
-        int[] dinoBody = {};
-    }
-    */
-    
-    public void refreshGrid(Dino dino, Obstacle obstacle){
-        //DDDDDDEEEEEEEEEEEEEEEEAAAAAAAAAAAAAADDDDDDDDDDDD???????????????
-        int dinoXPosition = dino.getXPosition();
-        int obstacleXPosition = obstacle.getXPosition();
-        int dinoYPosition = dino.getYPosition();
-        int obstacleYPosition = obstacle.getYPosition();
-        for (int move = 0; move < 8; move++){
-            for(int obsatclebody = 0; obsatclebody < 8; obsatclebody++){
-            if(dinoXPosition+dinoYPosition + move + obsatclebody == obstacleXPosition+obstacleYPosition + obsatclebody){
-                System.out.println(dinoXPosition+dinoYPosition);
-                System.out.println(obstacleXPosition+obstacleYPosition);
-                System.out.println(move);
-                // IDE KELL VMI HOGY MI A BRÉ TÖRTÉNJEN HA ÉRINTKEZNEK
             }
-            /*
-            if(dinoXPosition+dinoYPosition + move + obsatclebody == obstacleXPosition+obstacleYPosition + obsatclebody){
-                System.out.println(dinoXPosition+dinoYPosition);
-                System.out.println(obstacleXPosition+obstacleYPosition);
-                System.out.println(move);
-                */
         }
-        }
+    }
+    
+    public boolean refreshGrid(Dino dino, Obstacle obstacle){
 
         String[][] dinoShape = dino.getShape();
         int dinoX = dino.getXPosition();
@@ -53,7 +33,6 @@ public class ScreenGrid {
             }
         }
         
-        
         String[][] obstacleShape = obstacle.getShape();
         int obstacleX = obstacle.getXPosition();
         int obstacleY = obstacle.getYPosition();
@@ -62,6 +41,8 @@ public class ScreenGrid {
                 this.grid[i+obstacleY][j+obstacleX] = obstacleShape[i][j];
             }
         }
+
+        return true;
     }
 
     public String[][] getGrid(){
