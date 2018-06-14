@@ -6,7 +6,8 @@ public class Dino {
     private int y;
     private boolean jumping = false; 
     private long startTime;
-    private String[][] dinoShape = {{" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
+    private String[][] dinoShape = {{" ", " ", " ", " ", " ", " ", " ", " "},
+                                    {" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█\u001B[0m", " ", " "},
                                     {"\u001B[36m█", " ", "█", "█", "█", "█", "▄\u001B[0m", " "},
