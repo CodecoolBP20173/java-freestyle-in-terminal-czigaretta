@@ -49,17 +49,21 @@ public class Obstacle {
          return this.obstacleShape;
      }
 
-     public void modifyPosition() {
+     public int modifyPosition() {
          this.x-=2;
-         if (x < 0){
+         if (x < 1){
              this.x = this.startingX;
+             return 1;
          }
+         return 0;
      }
 
-     public void modifyPosition(int amount) {
+     public int modifyPosition(int amount) {
          this.x -= amount;
-         if (x < 0){
+         if (x < 1){
             this.x = this.startingX;
-         }   
+            return 1;
+         }
+         return 0;   
      }
 }
