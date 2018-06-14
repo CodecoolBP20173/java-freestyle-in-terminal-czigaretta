@@ -107,6 +107,43 @@ public class Terminal {
      * @param x Column number.
      * @param y Row number.
      */
+
+    public void print(int x, int y, int prevx, int prevy, String[][] shape){
+        String pixel = new String();
+        int yIndex;
+        int xIndex;
+        int prevyIndex;
+        int prevxIndex;
+        for(int i = Math.min(y, prevy); i < shape.length + Math.max(y, prevy); i++){
+            yIndex = i - y;
+            prevyIndex = i - prevy;
+            for(int j = Math.min(x, prevx); j < shape[0].length + Math.max(x, prevx); j++){
+                xIndex = j - x;
+                prevxIndex = j - prevx;
+                if (((y < prevy && i >= prevy && i < y+shape.length) || (y > prevy && i >= y && i < prevy + shape.length)) &&
+                ((x < prevx && j >= prevx && j < x+shape[i].length) || (x > prevx && j >= x && j <prevx+shape[i].length))){
+                    if (shape[yIndex][xIndex] != shape[prevyIndex][prevxIndex]){
+                        pixel = shape[yIndex][xIndex];
+                        System.out.print(CONTROL_CODE + Integer.toString(i) + ";" + Integer.toString(j) + MOVE + pixel);
+                    }
+                }
+                else {
+                    try {
+                        pixel = shape[yIndex][xIndex];
+                        System.out.print(CONTROL_CODE + Integer.toString(i) + ";" + Integer.toString(j) + MOVE + pixel);
+                    }
+                    catch (IndexOutOfBoundsException e) {
+                        pixel = " ";
+                        if (((i >= y && i < y+shape.length) && (j >= x && j < x + shape[yIndex].length)) ||
+                        ((i >= prevy && i < prevy+shape.length) && (j >= prevx && j < prevx + shape[prevyIndex].length))){
+                            System.out.print(CONTROL_CODE + Integer.toString(i) + ";" + Integer.toString(j) + MOVE + pixel);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void moveTo(Integer x, Integer y) {
     }
 
