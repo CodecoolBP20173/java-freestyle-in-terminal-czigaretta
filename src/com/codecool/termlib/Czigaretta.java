@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Czigaretta {
 
-	public static Obstacle obstacle = new Obstacle(140, 29);
+	public static Obstacle obstacle = new Obstacle(140, 30);
   
 	public static Dino dino = new Dino(10, 30);
 
@@ -16,7 +16,7 @@ public class Czigaretta {
 		String[][] output;
 		char button;
 		boolean jumping = false;
-		while (true) {
+		while (grid.refreshGrid(dino, obstacle)) {
 			button = Czigaretta.tryToRead();
 			if (jumping) {
 		            jumping = dino.jump();
@@ -26,9 +26,9 @@ public class Czigaretta {
 			    }	
 			}
 			if (button == 'q') {
-                            System.out.print("\033[?25h");	
+          System.out.print("\033[?25h");	
 			    break;		
-                        }
+          }
 			output = grid.getGrid();
 			grid.init();
 			grid.refreshGrid(dino, obstacle);
