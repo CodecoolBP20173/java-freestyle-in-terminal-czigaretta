@@ -27,7 +27,7 @@ public class Czigaretta {
 			}
 			if (button == 'q') {
 			    Terminal.raw(false);
-                            System.out.print("\033[?25h");	
+                System.out.print("\033[?25h");	
 			    break;		
                         }
 			output = grid.getGrid();
