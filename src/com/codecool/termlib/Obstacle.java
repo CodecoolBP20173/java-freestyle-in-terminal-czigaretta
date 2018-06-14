@@ -1,17 +1,20 @@
 package com.codecool.termlib;
 
+import java.util.Random;
+
 public class Obstacle {
 
      private int x;
      private int y;
      private int startingX;
-     private String[][] obstacleShape = {{" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
+     private Random random = new Random();
+     private String[][] obstacleShape = {{"C", " ", "\u001B[32m█", "█\u001B[0m", " ", "C"},
 					 {"\u001B[32m█", " ", "█", "█\u001B[0m", " ", " "},
 				         {"\u001B[32m█", "█", "█", "█", " ", "█\u001B[0m"},
 				         {" ", " ", "\u001B[32m█", "█", "█", "█\u001B[0m"},
 				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
 				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
-				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "}};
+				         {"C", " ", "\u001B[32m█", "█\u001B[0m", " ", "C"}};
   
      public Obstacle(int x, int y) {
          this.startingX = x;
@@ -50,9 +53,10 @@ public class Obstacle {
      }
 
      public int modifyPosition() {
+	 int n = random.nextInt(80) - 20;
          this.x-=2;
          if (x < 1){
-             this.x = this.startingX;
+             this.x = this.startingX + n;
              return 1;
          }
          return 1;
