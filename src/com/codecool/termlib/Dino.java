@@ -8,6 +8,8 @@ public class Dino {
     private int prevy;
     private boolean jumping = false; 
     private long startTime;
+    private long runTime = System.currentTimeMillis();
+    private int shape = 1; 
     private String[][] dinoShape = {{" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█\u001B[0m", " ", " "},
@@ -51,7 +53,7 @@ public class Dino {
             if (this.y <= 30){
                 float time = (System.currentTimeMillis() - this.startTime);
                 this.prevy = this.y;
-                this.y = 40 -(((int) Math.round((6000*time-0.5*15*time*time)/100000)) + 10);
+                this.y = 40 -(((int) Math.round((6000*time-0.5*13*time*time)/100000)) + 10);
                 if (this.y <= 30){
                     screen.print(this.x, this.y, this.prevx, this.prevy, this.dinoShape);
                 }

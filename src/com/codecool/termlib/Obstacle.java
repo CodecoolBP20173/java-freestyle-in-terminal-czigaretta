@@ -1,5 +1,7 @@
 package com.codecool.termlib;
 
+import java.util.Random;
+
 public class Obstacle {
 
     private int x;
@@ -7,6 +9,7 @@ public class Obstacle {
     private int prevx;
     private int prevy;
     private int startingx;
+    private Random random = new Random();
     private String[][] obstacleShape = {{" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
                                         {"\u001B[32m█", " ", "█", "█\u001B[0m", " ", " "},
                                         {"\u001B[32m█", "█", "█", "█", " ", "█\u001B[0m"},
@@ -54,10 +57,11 @@ public class Obstacle {
     }
 
     public void modifyPosition(Terminal screen){
+        int n = random.nextInt(150)-30;
         this.prevx = this.x;
-        this.x--;
+        this.x -= 3;
         if (x < 1){
-             this.x = this.startingx;
+             this.x = this.startingx + n;
         }
         screen.print(this.x, this.y, this.prevx, this.prevy, this.obstacleShape);
     }

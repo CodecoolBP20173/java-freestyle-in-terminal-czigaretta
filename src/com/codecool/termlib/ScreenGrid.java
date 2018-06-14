@@ -69,7 +69,7 @@ public class ScreenGrid {
     }
 
     public static int score(Obstacle obstacle){
-        score += obstacle.modifyPosition();
+        score ++;
 	System.out.println(score);
         return score;
     } 

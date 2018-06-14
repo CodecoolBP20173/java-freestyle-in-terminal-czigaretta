@@ -41,6 +41,9 @@ public class Terminal {
 
     public void init(){
         System.out.print("\033[?25l");
+        for (int i = 0; i < 200; i++){
+            System.out.println(CONTROL_CODE + String.valueOf(36) + ";" + String.valueOf(i) + MOVE + '▔');
+        }
     }
 
     public static void raw(boolean on) {
@@ -87,6 +90,7 @@ public class Terminal {
     }
 
     public void menu() {
+        clearScreen();
         System.out.print("   ____   _                 ____               _       \u001b[1E"
 			+"  |  _ \\ (_) _ __    ___   |  _ \\  _   _  ___ | |__  \u001b[1E" 
 			+"  | | | || || '_ \\  / _ \\  | |_) || | | |/ __|| '_ \\ \u001b[1E" 

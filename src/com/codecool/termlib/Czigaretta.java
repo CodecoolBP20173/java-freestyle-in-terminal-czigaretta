@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public class Czigaretta {
 
-	public static Obstacle obstacle = new Obstacle(140, 30);
+	public static Obstacle obstacle = new Obstacle(140, 29);
   
-	public static Dino dino = new Dino(10, 30);
+	public static Dino dino = new Dino(20, 30);
 
 	public static void main(String[] args) throws InterruptedException {
 	    ScreenGrid grid = new ScreenGrid();
@@ -19,22 +19,31 @@ public class Czigaretta {
                 button = Czigaretta.tryToRead();
 	    }
 
+		button = 'i';
+
 	    progress = startGame(grid, screen);
 	    while (progress != false) {
 		screen.gameOver();
 		screen.raw(true);
-		    button = Czigaretta.tryToRead(); 
-		    if (button == 'r') {	
-			grid = new ScreenGrid();
-			obstacle = new Obstacle(140, 30);
-			dino = new Dino(10, 30);
+		while(button == 'i'){
+			button = Czigaretta.tryToRead(); 
+		    if (button == 'r') {
+					
+				grid = new ScreenGrid();
+				obstacle = new Obstacle(140, 30);
+				dino = new Dino(10, 30);
 		        startGame(grid, screen);
 		    }
 		    if (button == 'q') {
+				progress = false;
 		        break;
 		    }
+		}
+		button = 'i';
+		    
 	    }   	
 	    screen.raw(false);
+		screen.clearScreen();
 	}
 
         private static Character tryToRead() {
@@ -50,32 +59,29 @@ public class Czigaretta {
 	}
 
         private static boolean startGame(ScreenGrid grid, Terminal screen) throws InterruptedException {
+		screen.clearScreen();
 	    screen.init();
 		String[][] output;
 		char button;
 		boolean jumping = false;
 		grid.score = 0;
+	
+		dino.show(screen);
 		while (grid.checkForDeath(dino, obstacle)) {
 			button = Czigaretta.tryToRead();
 			if (jumping) {
-		            jumping = dino.jump();
+		            jumping = dino.jump(screen);
    			} else {
                             if (button == ' ') {
-			       jumping = dino.jump();
+			       jumping = dino.jump(screen);
 			    }	
 			}
 			if (button == 'q') {
           		    System.out.print("\033[?25h");	
 			    return true;		
           		}
-			output = grid.getGrid();
-			grid.init();
-			grid.refreshGrid(dino, obstacle);
-			screen.clearScreen();
-			screen.printMap(output);
-			grid.score(obstacle);
-			Thread.sleep(30);
-			obstacle.modifyPosition();
+			obstacle.modifyPosition(screen);
+			Thread.sleep(25);
 		}
 	    return true;	
 	}
