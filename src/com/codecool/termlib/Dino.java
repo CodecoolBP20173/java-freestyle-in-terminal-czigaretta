@@ -4,10 +4,11 @@ public class Dino {
 
     private int x;
     private int y;
+    private int prevx;
+    private int prevy;
     private boolean jumping = false; 
     private long startTime;
-    private String[][] dinoShape = {{" ", " ", " ", " ", " ", " ", " ", " "},
-                                    {" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
+    private String[][] dinoShape = {{" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█\u001B[0m", " ", " "},
                                     {"\u001B[36m█", " ", "█", "█", "█", "█", "▄\u001B[0m", " "},
@@ -17,10 +18,12 @@ public class Dino {
     public Dino(int x, int y) {
         this.x = x;
         this.y = y;
+        this.prevx = x;
+        this.prevy = y;
     } 
     
-    public void setXPosition(int newX) {
-        this.x = newX;
+    public void show(Terminal screen) {
+        screen.print(this.x, this.y, this.prevx, this.prevy, this.dinoShape);
     }
 
     public void setYPosition(int newY) {
@@ -43,15 +46,20 @@ public class Dino {
         return this.dinoShape;
     }
 
-    public boolean jump() {
+    public boolean jump(Terminal screen) {
         if (jumping){
             if (this.y <= 30){
                 float time = (System.currentTimeMillis() - this.startTime);
+                this.prevy = this.y;
                 this.y = 40 -(((int) Math.round((6000*time-0.5*15*time*time)/100000)) + 10);
+                if (this.y <= 30){
+                    screen.print(this.x, this.y, this.prevx, this.prevy, this.dinoShape);
+                }
                 return true;
             }
             else {
                 this.jumping = false;
+                this.prevy = this.y;
                 this.y = 30;
                 return false;
             }
