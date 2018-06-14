@@ -26,7 +26,6 @@ public class Czigaretta {
 			    }	
 			}
 			if (button == 'q') {
-			    Terminal.raw(false);
                             System.out.print("\033[?25h");	
 			    break;		
                         }
@@ -38,6 +37,7 @@ public class Czigaretta {
 			Thread.sleep(30);
 			obstacle.modifyPosition();
 		}
+		screen.gameOver();
 	}
 
         private static Character tryToRead() {
