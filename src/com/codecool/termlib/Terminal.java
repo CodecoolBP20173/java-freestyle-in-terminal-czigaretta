@@ -41,7 +41,6 @@ public class Terminal {
 
     public void init(){
         System.out.print("\033[?25l");
-	raw(true);
     }
 
     public static void raw(boolean on) {
@@ -83,12 +82,12 @@ public class Terminal {
                          +"                                                                \u001b[1E"
                          +"			                                           \u001b[1E"
                          +"			                                           \u001b[1E"
-			 +"   Press 'r' to restart the game\n");
+			 +"   Press 'r' to restart the game, 'q' to exit\n");
     }
 
     public void menu() {
         System.out.print("   ____   _                 ____               _       \u001b[1E"
-			+"  |  _ \\ (_) _ __    ___   |  _ \\  _   _  ___ | |_  _ \u001b[1E" 
+			+"  |  _ \\ (_) _ __    ___   |  _ \\  _   _  ___ | |__  \u001b[1E" 
 			+"  | | | || || '_ \\  / _ \\  | |_) || | | |/ __|| '_ \\ \u001b[1E" 
 			+"  | |_| || || | | || (_) | |  _ < | |_| |\\__ \\| | | |\u001b[1E"
 			+"  |____/ |_||_| |_| \\___/  |_| \\_\\ \\__,_||___/|_| |_|\u001b[1E"
