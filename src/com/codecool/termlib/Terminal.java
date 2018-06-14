@@ -81,7 +81,8 @@ public class Terminal {
 			 +"   \\____| \\__,_||_| |_| |_| \\___|  \\___/   \\_/  \\___||_|  \u001b[1E"
                          +"                                                                \u001b[1E"
                          +"			                                           \u001b[1E"
-                         +"			                                           \u001b[1E"
+                         +"   Your score is: " + ScreenGrid.score + "                      \u001b[1E"
+		         +"			                                           \u001b[1E"
 			 +"   Press 'r' to restart the game, 'q' to exit\n");
     }
 
