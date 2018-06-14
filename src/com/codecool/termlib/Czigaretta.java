@@ -26,10 +26,9 @@ public class Czigaretta {
 			    }	
 			}
 			if (button == 'q') {
-			    Terminal.raw(false);
-                	    System.out.print("\033[?25h");	
+          System.out.print("\033[?25h");	
 			    break;		
-                        }
+          }
 			output = grid.getGrid();
 			grid.init();
 			grid.refreshGrid(dino, obstacle);
@@ -38,6 +37,7 @@ public class Czigaretta {
 			Thread.sleep(30);
 			obstacle.modifyPosition();
 		}
+		screen.gameOver();
 	}
 
         private static Character tryToRead() {
