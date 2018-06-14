@@ -8,7 +8,7 @@ public class ScreenGrid {
 
     private String[][] grid = new String[HEIGHT][WIDTH];
 
-    private static int score = 0;
+    public static int score = 0;
 
     public void init(){
         for (int i = 0; i<this.grid.length; i++){
@@ -70,6 +70,7 @@ public class ScreenGrid {
 
     public static int score(Obstacle obstacle){
         score += obstacle.modifyPosition();
+	System.out.println(score);
         return score;
     } 
 

@@ -23,7 +23,6 @@ public class Czigaretta {
 	    while (progress != false) {
 		screen.gameOver();
 		screen.raw(true);
-		//while (true) {
 		    button = Czigaretta.tryToRead(); 
 		    if (button == 'r') {	
 			grid = new ScreenGrid();
@@ -34,7 +33,6 @@ public class Czigaretta {
 		    if (button == 'q') {
 		        break;
 		    }
-		//}
 	    }   	
 	    screen.raw(false);
 	}
@@ -56,6 +54,7 @@ public class Czigaretta {
 		String[][] output;
 		char button;
 		boolean jumping = false;
+		grid.score = 0;
 		while (grid.checkForDeath(dino, obstacle)) {
 			button = Czigaretta.tryToRead();
 			if (jumping) {
@@ -74,6 +73,7 @@ public class Czigaretta {
 			grid.refreshGrid(dino, obstacle);
 			screen.clearScreen();
 			screen.printMap(output);
+			grid.score(obstacle);
 			Thread.sleep(30);
 			obstacle.modifyPosition();
 		}

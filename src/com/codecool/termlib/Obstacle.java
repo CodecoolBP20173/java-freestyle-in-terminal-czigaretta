@@ -55,7 +55,7 @@ public class Obstacle {
              this.x = this.startingX;
              return 1;
          }
-         return 0;
+         return 1;
      }
 
      public int modifyPosition(int amount) {
