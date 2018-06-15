@@ -74,7 +74,7 @@ public class Czigaretta {
 			screen.clearScreen();
 			screen.printMap(output);
 			grid.score(obstacle);
-			Thread.sleep(30);
+			Thread.sleep(45);
 			obstacle.modifyPosition();
 		}
 	    return true;	
