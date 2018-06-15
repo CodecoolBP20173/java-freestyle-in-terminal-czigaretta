@@ -95,7 +95,7 @@ public class Terminal {
                         +"                                                     \u001b[1E"
                         +"			                               \u001b[1E"
                         +"			                               \u001b[1E"
-		        +"   Press 's' to start the game\n");                            
+		        +"   Press 's' to start the game, space to jump\n");                            
     }
 
     /**

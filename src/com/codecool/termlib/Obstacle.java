@@ -8,13 +8,13 @@ public class Obstacle {
      private int y;
      private int startingX;
      private Random random = new Random();
-     private String[][] obstacleShape = {{"C", " ", "\u001B[32m█", "█\u001B[0m", " ", "C"},
+     private String[][] obstacleShape = {{" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
 					 {"\u001B[32m█", " ", "█", "█\u001B[0m", " ", " "},
 				         {"\u001B[32m█", "█", "█", "█", " ", "█\u001B[0m"},
 				         {" ", " ", "\u001B[32m█", "█", "█", "█\u001B[0m"},
 				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
 				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "},
-				         {"C", " ", "\u001B[32m█", "█\u001B[0m", " ", "C"}};
+				         {" ", " ", "\u001B[32m█", "█\u001B[0m", " ", " "}};
   
      public Obstacle(int x, int y) {
          this.startingX = x;
@@ -53,8 +53,8 @@ public class Obstacle {
      }
 
      public int modifyPosition() {
-	 int n = random.nextInt(80) - 20;
-         this.x-=2;
+	 int n = random.nextInt(50) - 30;
+         this.x-=3;
          if (x < 1){
              this.x = this.startingX + n;
              return 1;

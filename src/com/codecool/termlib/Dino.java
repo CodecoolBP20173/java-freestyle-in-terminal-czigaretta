@@ -6,13 +6,13 @@ public class Dino {
     private int y;
     private boolean jumping = false; 
     private long startTime;
-    private String[][] dinoShape = {{"D", " ", " ", " ", " ", " ", " ", "D"},
+    private String[][] dinoShape = {{" ", " ", " ", " ", " ", " ", " ", " "},
                                     {" ", " ", " ", "\u001B[36m█", "▀", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█", "█", "█\u001B[0m"},
                                     {" ", " ", " ", "\u001B[36m█", "█", "█\u001B[0m", " ", " "},
                                     {"\u001B[36m█", " ", "█", "█", "█", "█", "▄\u001B[0m", " "},
                                     {"\u001B[36m▝", "█", "█", "█", "█", " ", "▝\u001B[0m", " "},
-                                    {"D", " ", "\u001B[36m█", " ", "█\u001B[0m", " ", " ", "D"}};
+                                    {" ", " ", "\u001B[36m█", " ", "█\u001B[0m", " ", " ", " "}};
 
     public Dino(int x, int y) {
         this.x = x;
